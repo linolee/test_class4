@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" type = "text/css" href="../common/css/main_v190130.css">
+	
+<script type="text/javascript">
+	var column = prompt("행의 수", "1");
+	var row = prompt("열의 수", "1");
+	var color = prompt("선 색(RGB)", "#FF0000");
+	
+	document.write("<table id = 'table' border = '1'>");
+	for (var i = 0; i < column; i++) {
+		document.write("<tr>");
+		for (var j = 0; j < row; j++) {
+			document.write("<td>");
+			document.write("</td>");
+		}
+		document.write("</tr>");
+	}
+	document.write("</table>");
+	
+	var table = document.getElementById('table')
+	table.style.borderColor = color;
+
+</script>
+<style type="text/css">
+	td {width: 50px; height: 30px;}
+	table {border-color: }
+</style>
+</head>
+<body>
+</body>
+</html>

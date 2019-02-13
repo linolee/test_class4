@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" type = "text/css" href="../common/css/main_v190130.css">
+<style type="text/css">
+	table {border: 1px solid #333}	
+</style>
+<script type="text/javascript">
+
+	window.onload = function () {
+		obj = document.loginFrm;
+		obj.id.focus();
+	}
+	
+	function enterId() {
+		if(window.event.keyCode == 13){//아이디에서 엔터가 입력
+			if (checkIdNull()) {
+				alert("아이디를 입력해주세요.");
+				return;
+			}
+			if (checkPwdNull()) {
+				obj.pwd.focus();
+				return;
+			}
+			login();
+		}
+	}
+	function enterPwd() {
+		if(window.event.keyCode == 13){//비밀번호에서 엔터가 입력
+			if (checkIdNull()) {
+				alert("아이디를 입력해주세요.");
+				return;
+			}
+			if (checkPwdNull()) {
+				alert("비밀번호를 입력해주세요.");
+				return;
+			}
+			login();
+		}
+	}
+	
+	function clickLoginBtn() {
+		if (checkIdNull()) {
+			alert("아이디를 입력해주세요.");
+			return;
+		}
+		if (checkPwdNull()) {
+			alert("비밀번호를 입력해주세요.");
+			return;
+		}
+		login();
+	}
+	
+	function login() {
+		alert("로그인");
+	}
+		
+	function checkIdNull() {
+		var obj = document.loginFrm;
+		var id = obj.id.value.trim();
+		if (id == "") {
+			return true;
+		}else{
+			return false;
+		}
+	}
+	function checkPwdNull() {
+		var obj = document.loginFrm;
+		var pwd = obj.pwd.value.trim();
+		if (pwd == "") {
+			return true;
+		}else{
+			return false;
+		}
+	}
+	function checkEmail(){
+		var obj = document.emailFrm;
+		var div = document.getElementById("resultDiv");
+		var email = obj.email.value.trim();
+		if (email.indexOf('@') == -1 || email.indexOf('.') == -1|| email.length<5) {
+			div.innerHTML = "잘못된 메일형식"
+			div.style.color = "#F00";
+		}else{
+			div.innerHTML = "유효한 메일"			
+			div.style.color = "#000";
+		}
+	}
+	
+</script>
+</head>
+<body>
+	<div id="loginBox">
+		<form name="loginFrm">
+			<table>
+				<tr>
+					<td><input type="text" name="id" id="id" placeholder="아이디" class="inputBox" title="아이디" tabindex="1" onkeydown="enterId()"></td>
+					<td rowspan="2">
+						<input type="button" value="로그인" class="btn" style="width: 50px; height: 50px" tabindex="3" onclick="clickLoginBtn()">
+					</td>
+				</tr>
+				<tr>
+					<td><input type="password" name="pwd" id="pwd" placeholder="비밀번호" class="inputBox" title="비밀번호" tabindex="2" onkeydown="enterPwd()"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div>
+		<form name="emailFrm">
+			<label>이메일</label>
+			<input type="text" name="email" class="inputBox" id="email" onkeydown="checkEmail()">		
+			<input type="button" value="유효성 검증" class="btn" onclick="checkEmail()">		
+		
+		</form>	
+		<div id="resultDiv"></div>
+	</div>
+	
+</body>
+</html>

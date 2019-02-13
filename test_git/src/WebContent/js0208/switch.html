@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" type = "text/css" href="../common/css/main_v190130.css">
+<style type="text/css">
+	#bloodTable{border-spacing: 0px}
+	td,th{border: 1px solid #333; text-align: center;}
+	#btTitle{width : 80px;}
+	#bsTitle{width : 300px;}
+</style>
+<script type="text/javascript">
+	var bloodType = prompt("혈액형 입력", "A");
+	var output = "";
+	switch (bloodType.toUpperCase()) {
+	case "A":
+		output = "소심";
+		break;
+	case "B":
+		output = "털털";
+		break;
+	case "O":
+		output = "질긴 생명력";
+		break;
+	case "AB":
+		output = "복잡";
+		break;
+	default:
+		output = "not 닝겐"
+		break;
+	}
+	
+	document.write("<table border = '1'>");
+	document.write("<tr>");
+	document.write("<th id ='btTitle'>혈액형</th>");
+	document.write("<th id = 'bsTitle'>특징</th>");
+	document.write("</tr>");
+	
+	document.write("<tr>");
+	document.write("<th>"+bloodType+"</th>");
+	document.write("<th>"+output+"</th>");
+	document.write("</tr>");
+	
+	document.write("</table>");
+</script>
+</head>
+<body>
+</body>
+</html>

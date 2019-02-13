@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" type = "text/css" href="../common/css/main_v190130.css">
+<style type="text/css">
+	#diceWrap{border: 1px solid #333; width: 500px; height: 400px; box-shadow: 10px 10px 10px #333; margin-left: 100px; margin-top: 10px;}
+	#inputHeader{height: 150px; text-align: center;}
+	#score{height: 30px; text-align: center;}
+	#diceView{width: 500px; text-align: center; margin-top: 50px;}
+</style>
+<script type="text/javascript">
+	window.onload = function () {
+		setDice();
+		player1Trun = true;
+		player2Trun = false;
+		player1Score = new Array;
+		player2Score = new Array;
+	}
+	
+	function setDice() {
+		var obj = document.frm;
+		
+		var num1 = parseInt(Math.random()*6)+1;
+		var num2 = parseInt(Math.random()*6)+1;
+		
+		obj.dice1.src = "images/dice_"+num1+".png";
+		obj.dice2.src = "images/dice_"+num2+".png";
+		
+		return num1+num2;
+	}
+	
+	function throwDice() {
+		var obj = document.frm;
+		var resultNum = setDice();
+		
+		
+		
+		if (document.getElementById("p1Select").checked) {//1번이 던질 때
+			if (!player1Trun) {//1번 차례가 아니라면
+				alert("차례를 지켜주세요");
+				return;
+			}
+			player1Score.push(resultNum);//1번 점수를 리스트에 넣고
+			player1Trun = false;
+			player2Trun = true;//차례를 서로 바꾼다.
+		}else if (document.getElementById("p2Select").checked) {
+			if (!player2Trun) {//1번 차례가 아니라면
+				alert("차례를 지켜주세요");
+				return;
+			}
+			player2Score.push(resultNum);//1번 점수를 리스트에 넣고
+			player1Trun = true;
+			player2Trun = false;//차례를 서로 바꾼다.
+		}
+		
+		if (player1Score.length == 3 && player2Score.length == 3) {//두명 다 세번씩 던졌다면
+			result();
+			reset();
+		}
+	}
+
+	function join() {
+		var obj = document.frm;
+		var player1 = obj.player1.value.trim();
+		var player2 = obj.player2.value.trim();
+		if (player1 == "" || player2 == "") {
+			alert("사용자 입력");
+			return;
+		}
+			
+		document.getElementById("p1Name").innerHTML = player1;
+		document.getElementById("p2Name").innerHTML = player2;
+	}
+	
+	function reset(){
+		player1Trun = true;
+		player2Trun = false;
+		player1Score = new Array;
+		player2Score = new Array;
+	}
+	
+	function result(){
+		var obj = document.frm;
+		var total1 = player1Score[0]+player1Score[1]+player1Score[2];		
+		var total2 = player2Score[0]+player2Score[1]+player2Score[2];
+		
+		alert(obj.player1.value.trim()+"님의 점수 : "+total1+"\n"+obj.player2.value.trim()+"님의 점수 : "+total2);
+		
+		if (total1 > total2) {
+			document.getElementById("result").innerHTML = obj.player1.value.trim()
+		}else if (total1 < total2) {
+			document.getElementById("result").innerHTML = obj.player2.value.trim()
+		}else if (total1 == total2) {
+			obj.result.innerHTML = "무승부"
+		}
+		
+	}
+	
+</script>
+</head>
+<body>
+
+	<div id="diceWrap">
+		<form name="frm">
+			<div id="inputHeader">
+				<h2>주사위게임</h2>
+				<div>
+					<label>사용자 1</label>
+					<input type="text" name="player1" class="inputBox">
+					<label>사용자 2</label>
+					<input type="text" name="player2" class="inputBox">
+					<input type="button" value="참여설정" class="btn" onclick="join()">
+				</div>
+				<div style="text-align: center; margin-top: 10px;">
+					<input type="radio" name="turn1" class="inputBox" id="p1Select"><span id="p1Name"></span>
+					<input type="radio" name="turn1" class="inputBox" id="p2Select"><span id="p2Name"></span>
+					<input type="button" value="굴리기" class="btn" onclick="throwDice()">
+				</div>
+				
+			</div>
+			<div id="score">
+				판정 : <span id="result"></span>
+				<input type="button" value="초기화" class="btn" onclick="reset()">
+			</div>
+			<div id="diceView">
+				<img src="images/dice_1.png" name="dice1">
+				<img src="images/dice_1.png" name="dice2">
+			</div>
+		</form>
+	</div>
+
+</body>
+</html>

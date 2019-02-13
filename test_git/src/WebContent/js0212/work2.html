@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" type = "text/css" href="../common/css/main_v190130.css">
+<style type="text/css">
+	#frame{border: 1px solid #333; height: 300px; width: 300px}
+	input {width: 270px;}
+</style>
+<script type="text/javascript">
+	window.onload = function () {
+		var obj = document.frm;
+		obj.range.value = 150;
+	}
+	
+	function imgResize() {
+		var obj = document.frm;
+		var size = parseInt(obj.range.value);
+		
+		obj.img.width = size;
+		obj.img.height = size;
+	}
+
+</script>
+</head>
+<body>
+	<form name="frm">
+		<div id="frame">
+			<img alt="" src="../common/images/img.png" name="img" width="150" height="150">
+		
+		</div>
+		30<input type="range" min="30" max="300" name="range" onmousemove="imgResize()">300
+	
+	</form>
+
+</body>
+</html>

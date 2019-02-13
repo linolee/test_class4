@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" type = "text/css" href="../common/css/main_v190130.css">
+<style type="text/css">
+	#btnDiv{height: 40px;}
+	#output{width: 500px; height: 200px; border: 1px solid #333; overflow: auto;}
+</style>
+<script type="text/javascript">
+//함수사용
+function useMath() {
+	var divNode = document.getElementById("output");
+	
+	var output = ""
+	
+	//절대값
+	var i = -2;
+	output += i+"의 절대값 : "+Math.abs(i)+"<br>";
+	//반올림
+	i = 0.5;
+	output += i+"의 반올림 : "+Math.round(i)+"<br>";
+	//올림
+	i = 13.2;
+	output += i+"의 올림 : "+Math.ceil(i)+"<br>";
+	//내림
+	i = 13.2;
+	output += i+"의 내림 : "+Math.floor(i)+"<br>";
+	
+	divNode.innerHTML = output;
+}
+function useString() {
+	var divNode = document.getElementById("output");
+	
+	var output = ""
+	
+	var msg = "오늘은 수요일입니다. ABc수dEf";
+	
+	//글자수 length - 속성
+	output += msg+"의 글자수 : "+msg.length+"<br>";
+	//대문자
+	output += msg+"의 대문자 변경: "+msg.toUpperCase()+"<br>";
+	//소문자
+	output += msg+"의 대문자 변경: "+msg.toLowerCase()+"<br>";
+	//인덱스
+	output += msg+"의 '수'의 위치: "+msg.indexOf("수")+"<br>";
+	//마지막 인덱스
+	output += msg+"의 '수'의 위치: "+msg.lastIndexOf("수")+"<br>";
+	//특정 인덱스
+	output += msg+"의 12번째 문자열의 값: "+msg.charAt(12)+"<br>";
+	//자식문자열
+	output += msg+"의 5~9번째 문자열의 값: "+msg.substring(5, 9)+"<br>";
+	
+	msg = "노진경,김희철,김정윤,박영미,최지우";
+	var arrData = msg.split(",");
+	var sa = 1;
+	for (var i = 0; i < arrData.length; i++) {
+		output += "arrData["+i+"] : "+arrData[i]+"<br>"
+	}
+	
+	
+	
+	divNode.innerHTML = output;
+}
+function useDate() {
+	var divNode = document.getElementById("output");
+	
+	var output = ""
+	
+	divNode.innerHTML = output;
+}
+function useRecursive() {
+	var divNode = document.getElementById("output");
+	
+	var output = ""
+	
+	divNode.innerHTML = output;
+}
+</script>
+</head>
+<body>
+	<div id="btnDiv">
+		<input type="button" value="수학함수" class="btn" onclick="useMath()">
+		<input type="button" value="문자열함수" class="btn" onclick="useString()">
+		<input type="button" value="날짜함수" class="btn" onclick="useDate()">
+		<input type="button" value="재귀호출함수" class="btn" onclick="useRecursive()">
+	</div>
+	<div id="output">
+	
+	</div>
+</body>
+</html>

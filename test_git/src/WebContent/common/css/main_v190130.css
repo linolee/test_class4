@@ -1,0 +1,12 @@
+@charset "UTF-8";
+<style type="text/css">
+body,select,div,dl,dt,dd,ul,ol,li,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,button{margin:0px;padding:0px}
+fieldset,img{border:0px}
+ul,ol,li{list-style:none}
+body,th,td,input,select,textarea,button{font-size:13px;line-height:1.5;font-family:AppleSDGothicNeo-Regular,'Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif;color:#222;letter-spacing:-1px}
+a {color:#3F3F3F; text-decoration: underline; }
+a:hover {color: #128EFD; text-decoration: underline;}
+
+.inputbox{border: 1px solid #EDEDED; background-color: #FFFFFF; height: 20px}
+.btn{border: 1px solid #EDEDED; background-color: #FFFFFF; color: 1C1C1C; height: 22px }
+</style>

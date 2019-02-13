@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>복잡한 모양의 테이블</title>
+</head>
+<body>
+
+<strong>칸 합치기</strong>
+	<table border="1">
+		<tr height=100 >
+			<td width="100">1</td>
+			<td width="100">2</td>
+			<td width="100">3</td>
+		</tr>
+		<tr height=100 >
+			<td width="100">4</td>
+			<td width="100">5</td>
+			<td width="100">6</td>
+		</tr>
+		<tr height=100 >
+			<td width="100">7</td>
+			<td width="100">8</td>
+			<td width="100">9</td>
+		</tr>
+	</table>
+<hr color="#222222"/>
+
+<strong>행 합치기</strong>
+	<table border="1">
+		<tr height=100 >
+			<td colspan="2">1</td>
+			<!-- <td width="100">2</td> -->
+			<td width="100">3</td>
+		</tr>
+		<tr height=100 >
+			<td width="100">4</td>
+			<td width="200" colspan="2">5</td>
+			<!-- <td width="100">6</td> -->
+		</tr>
+		<tr height=100 >
+			<td width="300" colspan="3">7</td>
+			<!-- <td width="100">8</td>
+			<td width="100">9</td> -->
+		</tr>
+	</table>
+
+<strong>열 합치기</strong>
+	<table border="1">
+		<tr height=100 >
+			<td width="100" rowspan="2">1</td>
+			<td width="100">2</td>
+			<td width="100" rowspan="3">3</td>
+		</tr>
+		<tr height=100 >
+			<td width="100" rowspan="2">5</td>
+		</tr>
+		<tr height=100 >
+			<td width="100">7</td>
+		</tr>
+	</table>
+<hr color="#222222"/>
+
+<strong>칸 합치기</strong>
+	<table border="1">
+		<tr height=100 >
+			<td width="100" colspan="2" bgcolor="#AFE1FF">1</td>
+			<td width="100" rowspan="2" bgcolor="#9DCFFF">3</td>
+		</tr>
+		<tr height=100 >
+			<td width="100" rowspan="2" bgcolor="#79ABFF">4</td>
+			<td width="100" background="http://211.63.89.148:8080/html_prj/common/images/쌍용의자랑.png">5</td>
+		</tr>
+		<tr height=100 >
+			<td width="100" colspan="2" bgcolor="#8BBDFF">8</td>
+		</tr>
+	</table>
+
+
+
+</body>
+</html>

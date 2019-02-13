@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" type = "text/css" href="../common/css/main_v190130.css">
+<style type="text/css">
+	
+</style>
+<script type="text/javascript">
+	var name = prompt("이름을 입력해주세요", "무명");
+	var msg = "평민"
+	var img = "img.png";
+	
+	if (name == "이재찬") {
+		img = "img1_1.png";
+	}
+	
+	document.write("<img src = '../common/images/"+img+"'>");
+	document.write(msg);
+	
+	var num = prompt("임의의 수를 입력", "2");
+	//if~else : 둘 중 하나의 코드를 반드시 실행해야 할 때.
+	if (num %2 == 0) {
+		document.write("<marquee scrollamount = '"+num*2+"' direction = 'right'>"+num+"은 짝수입니다. =:&gt; </marquee>");
+	}else {
+		document.write("<marquee scrollamount = '"+num*2+"' direction = 'left'>"+num+"은 홀수입니다. &lt;:= </marquee>");
+	}
+	
+	//다중 if
+	var bloodType = prompt("혈액형 입력", "A");
+	
+	if (bloodType == "A" || bloodType == "a") {
+		alert("소심");
+	}else if (bloodType == "B" || bloodType == "b") {
+		alert("털털");
+	}else if (bloodType == "O" || bloodType == "o") {
+		alert("질긴 생명력");
+	}else if (bloodType == "AB" || bloodType == "ab") {
+		alert("복잡");
+	}
+	
+
+</script>
+
+</head>
+<body>
+</body>
+</html>

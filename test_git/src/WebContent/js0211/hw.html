@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" type = "text/css" href="../common/css/main_v190130.css">
+<style type="text/css">
+	
+</style>
+<script type="text/javascript">
+	onload = function () {
+		document.getElementById("btn").addEventListener("click", name);
+	}
+	
+	function name() {
+		
+		var name = document.frm.name.value;
+		var temp = "";
+		for (var i = 1; i < 7; i++) {
+			temp += "<h"+i+">"+name+"</h"+i+">"
+		}
+		document.getElementById("div").innerHTML = 	temp;
+	}
+	
+	
+</script>
+</head>
+<body>
+	<form name="frm">
+		<label>이름</label>
+		<input type="text" name = "name">
+		<input type="button" value="확인" id="btn">
+	</form>
+	
+	<div id="div"></div>
+	</body>
+	
+	
+</html>
